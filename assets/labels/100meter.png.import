@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2qe8sby5scph"
-path="res://.godot/imported/score_button_red.png-7c706e3cd03263ef12b03312e46e1f40.ctex"
+uid="uid://cxxtg3cwcny28"
+path="res://.godot/imported/100meter.png-00f11c9de90c47e9c79a6b63fed3e67d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/score_button_red.png"
-dest_files=["res://.godot/imported/score_button_red.png-7c706e3cd03263ef12b03312e46e1f40.ctex"]
+source_file="res://assets/labels/100meter.png"
+dest_files=["res://.godot/imported/100meter.png-00f11c9de90c47e9c79a6b63fed3e67d.ctex"]
 
 [params]
 

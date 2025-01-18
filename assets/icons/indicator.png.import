@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpb88cqdavs66"
-path="res://.godot/imported/roll_left_bg.png-b3de1f348d990e7bd5fd14d1aa3c9d78.ctex"
+uid="uid://dk7884qc43fb0"
+path="res://.godot/imported/indicator.png-c3f4e1bdbe14780c29178c03c3838dac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/roll_left_bg.png"
-dest_files=["res://.godot/imported/roll_left_bg.png-b3de1f348d990e7bd5fd14d1aa3c9d78.ctex"]
+source_file="res://assets/icons/indicator.png"
+dest_files=["res://.godot/imported/indicator.png-c3f4e1bdbe14780c29178c03c3838dac.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://opfk5r6rs7lj"
-path="res://.godot/imported/score_tool_tip.png-4873d1190d3b4fb6ee300ae147dab17d.ctex"
+uid="uid://dpb88cqdavs66"
+path="res://.godot/imported/roll_left_bg.png-009f8d4bfecfa31d97670ce20da5dd87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/score_tool_tip.png"
-dest_files=["res://.godot/imported/score_tool_tip.png-4873d1190d3b4fb6ee300ae147dab17d.ctex"]
+source_file="res://assets/frames/roll_left_bg.png"
+dest_files=["res://.godot/imported/roll_left_bg.png-009f8d4bfecfa31d97670ce20da5dd87.ctex"]
 
 [params]
 

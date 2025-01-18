@@ -1,4 +1,6 @@
 extends Node2D
+class_name Die
+
 
 @onready var face: Sprite2D = %Face
 @onready var roll: Sprite2D = %Roll
@@ -19,13 +21,14 @@ var state : State = State.INACTIVE
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.timeout.connect(on_timer_timeout)
-	roll_die()
+	#roll_die()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("left_mouse"):
-		if not roll_animation.is_playing():
-			roll_die()
+	pass
+	#if Input.is_action_pressed("left_mouse"):
+		#if not roll_animation.is_playing():
+			#roll_die()
 			
 func _set_value() -> void:
 	_value = randi_range(0,face.hframes - 1)

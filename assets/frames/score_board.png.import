@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnmr5ionnldwk"
-path="res://.godot/imported/score_button_gray.png-434157881840acd0ec521e1b7579ab3a.ctex"
+uid="uid://camxl27rccw14"
+path="res://.godot/imported/score_board.png-04002249626f48e3b6e959ce6a891c2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/score_button_gray.png"
-dest_files=["res://.godot/imported/score_button_gray.png-434157881840acd0ec521e1b7579ab3a.ctex"]
+source_file="res://assets/frames/score_board.png"
+dest_files=["res://.godot/imported/score_board.png-04002249626f48e3b6e959ce6a891c2c.ctex"]
 
 [params]
 

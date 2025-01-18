@@ -1,0 +1,152 @@
+[gd_scene load_steps=20 format=3 uid="uid://6ydbo3y1qxuu"]
+
+[ext_resource type="Script" path="res://scenes/long_jump.gd" id="1_wglct"]
+[ext_resource type="Shader" path="res://assets/sliding_background.gdshader" id="2_efoke"]
+[ext_resource type="Texture2D" uid="uid://pskmmx7manl1" path="res://assets/running_tile.png" id="3_ka2pv"]
+[ext_resource type="Texture2D" uid="uid://drna48p0raiqr" path="res://assets/frames/main_board.png" id="4_fvfrg"]
+[ext_resource type="Texture2D" uid="uid://camxl27rccw14" path="res://assets/frames/score_board.png" id="5_24tos"]
+[ext_resource type="Theme" uid="uid://bjqoabon3rsea" path="res://main_theme.tres" id="6_g8sky"]
+[ext_resource type="Texture2D" uid="uid://cxxtg3cwcny28" path="res://assets/labels/100meter.png" id="7_m0rb2"]
+[ext_resource type="Texture2D" uid="uid://bcx2m1ab4gt80" path="res://assets/icons/info.png" id="8_rpook"]
+[ext_resource type="Texture2D" uid="uid://bpuwb2yr1xh6x" path="res://assets/labels/score_label.png" id="9_uil65"]
+[ext_resource type="Theme" uid="uid://cbawpf1b7g0f5" path="res://score_theme.tres" id="10_lkkou"]
+[ext_resource type="Texture2D" uid="uid://b28sek7g2shs8" path="res://assets/buttons/roll_button_grey.png" id="11_t3vp6"]
+[ext_resource type="Texture2D" uid="uid://dyl0ui22dkls" path="res://assets/buttons/roll_button_green.png" id="12_seydw"]
+[ext_resource type="Texture2D" uid="uid://byi67tfwgsdoc" path="res://assets/buttons/roll_disabled.png" id="13_xf6ad"]
+[ext_resource type="Texture2D" uid="uid://dnmr5ionnldwk" path="res://assets/buttons/score_button_gray.png" id="14_fcldk"]
+[ext_resource type="Texture2D" uid="uid://d2qe8sby5scph" path="res://assets/buttons/score_button_red.png" id="15_ttnyo"]
+[ext_resource type="Texture2D" uid="uid://bhr1ov2wt56ju" path="res://assets/buttons/score_button_disabled.png" id="16_gp4pm"]
+[ext_resource type="PackedScene" uid="uid://bwxojfrn4p5p3" path="res://scenes/roll_counter.tscn" id="17_mjfcu"]
+[ext_resource type="PackedScene" uid="uid://c8sxkkb1vd4oc" path="res://scenes/Die/die.tscn" id="18_yogbk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jgarg"]
+shader = ExtResource("2_efoke")
+shader_parameter/bg_color = Color(0.490196, 0.847059, 0.192157, 1)
+shader_parameter/pattern_color = Color(0.894118, 0.815686, 0.447059, 1)
+shader_parameter/pattern_size = 256.0
+shader_parameter/pattern_sampler = ExtResource("3_ka2pv")
+
+[node name="LongJump" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wglct")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jgarg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainBoard" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 241.0
+offset_right = 948.0
+offset_bottom = 619.0
+texture = ExtResource("4_fvfrg")
+
+[node name="ScoreBoard" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 918.0
+offset_top = 286.0
+offset_right = 1153.0
+offset_bottom = 698.0
+texture = ExtResource("5_24tos")
+
+[node name="LongJump" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 33.0
+offset_right = 1092.0
+offset_bottom = 106.0
+theme = ExtResource("6_g8sky")
+texture = ExtResource("7_m0rb2")
+
+[node name="InfoButton" type="TextureButton" parent="LongJump"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 450.0
+offset_top = -21.0
+offset_right = 520.0
+offset_bottom = 49.0
+texture_normal = ExtResource("8_rpook")
+
+[node name="ScoreLabel" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 957.0
+offset_top = 243.0
+offset_right = 1288.0
+offset_bottom = 315.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("6_g8sky")
+texture = ExtResource("9_uil65")
+
+[node name="ScoreValue" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1048.0
+offset_top = 342.0
+offset_right = 1131.0
+offset_bottom = 437.0
+theme = ExtResource("10_lkkou")
+text = "12"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="RollButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 501.0
+offset_top = 554.0
+offset_right = 630.0
+offset_bottom = 683.0
+texture_normal = ExtResource("11_t3vp6")
+texture_pressed = ExtResource("12_seydw")
+texture_hover = ExtResource("12_seydw")
+texture_disabled = ExtResource("13_xf6ad")
+
+[node name="ScoreButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 671.0
+offset_top = 552.0
+offset_right = 800.0
+offset_bottom = 681.0
+texture_normal = ExtResource("14_fcldk")
+texture_pressed = ExtResource("15_ttnyo")
+texture_hover = ExtResource("15_ttnyo")
+texture_disabled = ExtResource("16_gp4pm")
+
+[node name="RollCounter" parent="." instance=ExtResource("17_mjfcu")]
+unique_name_in_owner = true
+position = Vector2(722, 138)
+remaining_throws = 7
+
+[node name="Die" parent="." instance=ExtResource("18_yogbk")]
+position = Vector2(432, 444)
+
+[node name="Die2" parent="." instance=ExtResource("18_yogbk")]
+position = Vector2(230, 441)
+
+[node name="Die3" parent="." instance=ExtResource("18_yogbk")]
+position = Vector2(361, 342)
+
+[node name="Die4" parent="." instance=ExtResource("18_yogbk")]
+position = Vector2(556, 357)
+
+[node name="DebugState" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 995.0
+offset_top = 17.0
+offset_right = 1249.0
+offset_bottom = 57.0

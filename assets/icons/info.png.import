@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyl0ui22dkls"
-path="res://.godot/imported/roll_button_green.png-c75d52288125dafe3ecd49d66f4f7d6c.ctex"
+uid="uid://bcx2m1ab4gt80"
+path="res://.godot/imported/info.png-0664219dec01b9721117969bf4ea03d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/roll_button_green.png"
-dest_files=["res://.godot/imported/roll_button_green.png-c75d52288125dafe3ecd49d66f4f7d6c.ctex"]
+source_file="res://assets/icons/info.png"
+dest_files=["res://.godot/imported/info.png-0664219dec01b9721117969bf4ea03d2.ctex"]
 
 [params]
 

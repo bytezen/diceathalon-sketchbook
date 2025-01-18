@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhr1ov2wt56ju"
-path="res://.godot/imported/score_button_disabled.png-be6ca4c37dc19e1c7adca1c81ebd6db3.ctex"
+uid="uid://b28sek7g2shs8"
+path="res://.godot/imported/roll_button_grey.png-14489ce3c859237e2998001bca5833bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/score_button_disabled.png"
-dest_files=["res://.godot/imported/score_button_disabled.png-be6ca4c37dc19e1c7adca1c81ebd6db3.ctex"]
+source_file="res://assets/buttons/roll_button_grey.png"
+dest_files=["res://.godot/imported/roll_button_grey.png-14489ce3c859237e2998001bca5833bb.ctex"]
 
 [params]
 
