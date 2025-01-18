@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 			
 func _set_value() -> void:
 	_value = randi_range(0,face.hframes - 1)
-	print(_value)
+	#print(_value)
 	face.frame = _value
 
 func roll_die() -> void:
