@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://chltv0qibytk2"]
+
+[ext_resource type="Script" path="res://scenes/long_jump_player_end.gd" id="1_dncoe"]
+[ext_resource type="Texture2D" uid="uid://jwe2ns65oteh" path="res://assets/norway_bg.png" id="1_rfluq"]
+[ext_resource type="Texture2D" uid="uid://drna48p0raiqr" path="res://assets/frames/main_board.png" id="2_klodn"]
+[ext_resource type="Texture2D" uid="uid://cxxtg3cwcny28" path="res://assets/labels/100meter.png" id="3_7kxmq"]
+[ext_resource type="PackedScene" uid="uid://vlya0x67u1v4" path="res://scenes/event_result.tscn" id="4_5h7gx"]
+
+[node name="LongJumpPlayerEnd" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dncoe")
+
+[node name="NorwayBg" type="Sprite2D" parent="."]
+position = Vector2(641, 399)
+texture = ExtResource("1_rfluq")
+
+[node name="MainBoard" type="Sprite2D" parent="."]
+position = Vector2(639.306, 369.5)
+scale = Vector2(0.748677, 0.748677)
+texture = ExtResource("2_klodn")
+metadata/_edit_group_ = true
+
+[node name="100Meter" type="Sprite2D" parent="."]
+position = Vector2(653.139, 286.75)
+scale = Vector2(0.583037, 0.582192)
+texture = ExtResource("3_7kxmq")
+metadata/_edit_group_ = true
+
+[node name="EventResult" parent="." instance=ExtResource("4_5h7gx")]
+unique_name_in_owner = true
+offset_left = 630.5
+offset_top = 384.0
+offset_right = 630.5
+offset_bottom = 384.0
+metadata/_edit_group_ = true
