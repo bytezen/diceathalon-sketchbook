@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0vbldisktrwg"]
+
+[ext_resource type="Theme" uid="uid://bjqoabon3rsea" path="res://main_theme.tres" id="1_3c2bj"]
+
+[node name="UserMessage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 536.0
+offset_bottom = 172.0
+scale = Vector2(1, 0.989373)
+theme = ExtResource("1_3c2bj")
+text = "Let's see exactly how smart this thing is in terms ok it actually wraps the words correctly"
+fit_content = true
