@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dmp6h3phb4te8"]
+
+[ext_resource type="FontFile" uid="uid://cbtk7epa6wlo7" path="res://fonts/DOSIS-BOLD.TTF" id="1_i2bjp"]
+
+[resource]
+default_font = ExtResource("1_i2bjp")
+default_font_size = 92
+RichTextLabel/fonts/bold_font = ExtResource("1_i2bjp")
+RichTextLabel/fonts/normal_font = ExtResource("1_i2bjp")

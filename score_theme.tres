@@ -6,8 +6,7 @@
 [ext_resource type="FontFile" uid="uid://ch6g0ss1ixwp0" path="res://fonts/NotoSans-Regular.ttf" id="4_da5or"]
 
 [resource]
-default_font = ExtResource("4_da5or")
-default_font_size = 64
+default_font_size = 92
 RichTextLabel/colors/font_outline_color = Color(0.211765, 0.741176, 0.968627, 1)
 RichTextLabel/constants/outline_size = 4
 RichTextLabel/font_sizes/bold_font_size = 64

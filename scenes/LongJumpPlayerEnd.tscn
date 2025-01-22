@@ -1,10 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://chltv0qibytk2"]
+[gd_scene load_steps=9 format=3 uid="uid://chltv0qibytk2"]
 
 [ext_resource type="Script" path="res://scenes/long_jump_player_end.gd" id="1_dncoe"]
 [ext_resource type="Texture2D" uid="uid://jwe2ns65oteh" path="res://assets/norway_bg.png" id="1_rfluq"]
+[ext_resource type="Shader" path="res://assets/sliding_background_image.gdshader" id="2_40t81"]
 [ext_resource type="Texture2D" uid="uid://drna48p0raiqr" path="res://assets/frames/main_board.png" id="2_klodn"]
 [ext_resource type="Texture2D" uid="uid://cxxtg3cwcny28" path="res://assets/labels/100meter.png" id="3_7kxmq"]
+[ext_resource type="Texture2D" uid="uid://dx2y77vylqtrk" path="res://assets/norway_tile.png" id="3_fa7f5"]
 [ext_resource type="PackedScene" uid="uid://vlya0x67u1v4" path="res://scenes/event_result.tscn" id="4_5h7gx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltjki"]
+resource_local_to_scene = true
+shader = ExtResource("2_40t81")
+shader_parameter/bg_color = Color(1, 1, 1, 1)
+shader_parameter/pattern_color = null
+shader_parameter/pattern_size = 256.0
+shader_parameter/pattern_sampler = ExtResource("3_fa7f5")
 
 [node name="LongJumpPlayerEnd" type="Control"]
 layout_mode = 3
@@ -17,7 +27,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dncoe")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ltjki")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="NorwayBg" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(641, 399)
 texture = ExtResource("1_rfluq")
 
