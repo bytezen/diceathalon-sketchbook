@@ -1,6 +1,8 @@
 extends Control
 
-enum State {INIT,IDLE, ROLLING, USER_CHOICE, LAST_ROLL,END, USER_MSG}
+@export var player_score : RichTextLabel
+
+enum State {INIT,IDLE, ROLLING, USER_CHOICE, LAST_ROLL,END, USER_ROLL_SECOND_SET}
 
 var current_state:State = State.INIT
 var previous_state:State = State.INIT
@@ -22,13 +24,18 @@ func _ready() -> void:
 	%RollButton.pressed.connect(on_roll_button_pressed)
 	%ScoreButton.pressed.connect(on_score_button_pressed)
 	%RollCounter.oops_animation_stopped.connect(on_roll_counter_oops_animation_stopped)
+	
+	%LongJumpPlayerEnd.close.connect(_on_long_jump_player_end_close)
 
-
+func _on_long_jump_player_end_close():
+	print("long jump player end closed")
+	%LongJumpPlayerEnd.visible = false
+	_change_state(State.INIT)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# For Debug output
-	%DebugState.text = _state_string()
+	%DebugState.text = "previous: " + _state_string("previous") + "current: " +  _state_string()
 	
 	if current_state == State.INIT:
 		%ScoreButton.disabled = true
@@ -53,8 +60,18 @@ func _process(_delta: float) -> void:
 		%RollCounter.animate_oops()
 		_roll_dice()
 		
-	elif current_state == State.USER_MSG:
+	elif current_state == State.USER_ROLL_SECOND_SET:
+		# Move the dice set indicator down
+		# Make that scene the active current scene
+		%ScoreButton.disabled = true
+		%RollButton.disabled = false
+		pass
 		
+	elif current_state == State.END:
+		%LongJumpPlayerEnd.visible = true
+		%LongJumpPlayerEnd.score = _score
+		# TODO: signal listener for when the end screen is closed
+		# LongJump sends a signal for whoever is interested in the player being done??
 		pass
 		
 		
@@ -76,12 +93,20 @@ func on_roll_button_pressed() -> void:
 func on_score_button_pressed() -> void:
 	if %ScoreButton.disabled:
 		return	
-	_score += _dice_total 
+		
+	# update the player score
+	_score += _total_dice() 
+	player_score.text = str(_score)
+	# update the number of rolls scored
 	_rolls_scored += 1
+	
 	if _rolls_scored == 2:
 		_change_state(State.END)
 	else:
-		_change_state(State.USER_MSG)
+		%RollTotal.text = str(0)
+		#%RollTotal.visible = false
+		%RollButton.disabled  = true
+		_change_state(State.USER_ROLL_SECOND_SET)
 	
 func on_die_animation_stopped() -> void:
 	_die_rolling_count -= 1
@@ -95,12 +120,14 @@ func on_die_animation_stopped() -> void:
 	%RollCounter.remaining_throws -= 1
 	var _throws:int =  %RollCounter.remaining_throws
 	
+	_dice_total = _total_dice()
+	%RollTotal.text = str(_dice_total)
+			
 	if previous_state == State.INIT:
 		%ScoreButton.disabled = false
 		%RollButton.disabled = false
-		
-		_dice_total = _total_dice()
-		%ScoreValue.text = str(_score) 			
+	
+		#player_score.text = str(_score) 			
 		_change_state(State.USER_CHOICE)
 	
 	elif previous_state == State.USER_CHOICE:
@@ -110,9 +137,16 @@ func on_die_animation_stopped() -> void:
 		else:
 			_change_state(State.LAST_ROLL)
 	
+	elif previous_state == State.USER_ROLL_SECOND_SET:
+		# see if we have any more throws left
+		if _throws > 1:
+			_change_state(State.USER_CHOICE)
+		else:
+			_change_state(State.LAST_ROLL)		
+		
 	elif current_state	== State.LAST_ROLL:
 		# save the score and then transition to the end screen
-		_score += _total_dice()
+		_score += _dice_total
 		
 		pass
 		
@@ -132,5 +166,13 @@ func _change_state(next_state:State) -> void:
 	previous_state = current_state	
 	current_state = next_state
 
-func _state_string() -> String:
-	return ["INIT","IDLE","ROLLING","USER_CHOICE","LAST_ROLL","END","USER_MSG"][current_state]
+func _state_string(which:String="current") -> String:
+	var idx
+	if which == "current":
+		idx = current_state
+	elif which == "previous":
+		idx = previous_state
+		
+	return ["INIT","IDLE","ROLLING",
+			"USER_CHOICE","LAST_ROLL",
+			"END","USER_ROLL_SECOND_SET"][idx]

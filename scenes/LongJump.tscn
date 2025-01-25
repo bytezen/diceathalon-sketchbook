@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://6ydbo3y1qxuu"]
+[gd_scene load_steps=21 format=3 uid="uid://6ydbo3y1qxuu"]
 
 [ext_resource type="Script" path="res://scenes/long_jump.gd" id="1_wglct"]
 [ext_resource type="Shader" path="res://assets/sliding_background.gdshader" id="2_efoke"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bhr1ov2wt56ju" path="res://assets/buttons/score_button_disabled.png" id="16_gp4pm"]
 [ext_resource type="PackedScene" uid="uid://bwxojfrn4p5p3" path="res://scenes/roll_counter.tscn" id="17_mjfcu"]
 [ext_resource type="PackedScene" uid="uid://c8sxkkb1vd4oc" path="res://scenes/Die/die.tscn" id="18_yogbk"]
+[ext_resource type="PackedScene" uid="uid://chltv0qibytk2" path="res://scenes/LongJumpPlayerEnd.tscn" id="19_hi7ck"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jgarg"]
 resource_local_to_scene = true
@@ -29,7 +30,7 @@ shader_parameter/speed_x = 0.05
 shader_parameter/speed_y = 0.02
 shader_parameter/pattern_sampler = ExtResource("3_ka2pv")
 
-[node name="LongJump" type="Control"]
+[node name="LongJump" type="Control" node_paths=PackedStringArray("player_score")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,6 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wglct")
+player_score = NodePath("PlayerScore")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_jgarg")
@@ -91,19 +93,29 @@ scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_g8sky")
 texture = ExtResource("9_uil65")
 
-[node name="ScoreValue" type="RichTextLabel" parent="."]
-unique_name_in_owner = true
+[node name="PlayerScore" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 1048.0
 offset_top = 342.0
 offset_right = 1131.0
 offset_bottom = 437.0
 theme = ExtResource("10_lkkou")
-text = "12"
+text = "0"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
+
+[node name="RollTotal" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 787.0
+offset_top = 525.0
+offset_right = 870.0
+offset_bottom = 592.0
+theme = ExtResource("10_lkkou")
+theme_override_font_sizes/font_size = 36
+text = "0"
 
 [node name="RollButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
@@ -149,7 +161,12 @@ position = Vector2(556, 357)
 [node name="DebugState" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 995.0
+offset_left = 628.0
 offset_top = 17.0
 offset_right = 1249.0
 offset_bottom = 57.0
+
+[node name="LongJumpPlayerEnd" parent="." instance=ExtResource("19_hi7ck")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

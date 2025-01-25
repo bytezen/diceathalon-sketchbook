@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vlya0x67u1v4"]
+[gd_scene load_steps=13 format=3 uid="uid://vlya0x67u1v4"]
 
 [ext_resource type="Script" path="res://scenes/event_result.gd" id="1_ml2od"]
 [ext_resource type="Texture2D" uid="uid://jsu0nr37ygwk" path="res://assets/frames/event_result.png" id="2_8s2gn"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dbc5pbp4qdnoo" path="res://assets/icons/second_place_shadow.png" id="10_gavpg"]
 [ext_resource type="Theme" uid="uid://dmp6h3phb4te8" path="res://result_theme.tres" id="11_aqdmw"]
 [ext_resource type="Texture2D" uid="uid://c1p7c0e4tis2x" path="res://assets/icons/third_place_star.png" id="11_kxqej"]
+[ext_resource type="Texture2D" uid="uid://cgwqqcbutxap4" path="res://assets/buttons/close.png" id="12_1kmf1"]
 [ext_resource type="Texture2D" uid="uid://bmd6tfkl12cfo" path="res://assets/icons/third_place_shadow.png" id="12_usxhj"]
 
 [node name="EventResult" type="Control"]
@@ -20,7 +21,6 @@ offset_top = 271.0
 offset_right = 345.0
 offset_bottom = 271.0
 script = ExtResource("1_ml2od")
-score = 25
 
 [node name="EventResult" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
@@ -33,7 +33,7 @@ offset_left = -35.0
 offset_top = -88.0
 offset_right = 36.0
 theme = ExtResource("2_fc3nt")
-text = "12"
+text = "score"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -76,3 +76,16 @@ offset_right = 155.0
 offset_bottom = 138.0
 theme = ExtResource("11_aqdmw")
 horizontal_alignment = 1
+
+[node name="Close" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 191.0
+offset_top = -191.0
+offset_right = 227.0
+offset_bottom = -153.0
+texture_normal = ExtResource("12_1kmf1")
+texture_pressed = ExtResource("12_1kmf1")
+texture_hover = ExtResource("12_1kmf1")
+texture_disabled = ExtResource("12_1kmf1")
+texture_focused = ExtResource("12_1kmf1")

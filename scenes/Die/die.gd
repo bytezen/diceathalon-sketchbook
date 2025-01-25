@@ -50,5 +50,4 @@ func on_timer_timeout() -> void:
 	_set_value()
 	roll.visible = false
 	face.visible = true
-	print("value: " + str(value))
 	animation_stop.emit()
