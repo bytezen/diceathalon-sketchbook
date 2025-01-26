@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://boet2d7b3sox6"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_8rre5"]
+[ext_resource type="Texture2D" uid="uid://bu0ko18slsidt" path="res://assets/icons/flags/norway-flag-button-square-icon-256.png" id="2_07s25"]
+[ext_resource type="PackedScene" uid="uid://6ykurt0v0h4q" path="res://scenes/event_card.tscn" id="3_2y2ir"]
+[ext_resource type="FontFile" uid="uid://doigatjxl7dq3" path="res://fonts/DOSIS-LIGHT.TTF" id="4_hkklp"]
+
+[node name="Player" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8rre5")
+country = "nwy"
+flag = ExtResource("2_07s25")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 683.0
+offset_bottom = 443.0
+
+[node name="EventCard" parent="Background" instance=ExtResource("3_2y2ir")]
+position = Vector2(335, 227)
+
+[node name="PlayerFlag" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 259.0
+offset_bottom = 261.0
+
+[node name="PlayerScore" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 11.0
+offset_right = 577.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0, 0, 0.929412, 1)
+theme_override_font_sizes/font_size = 96
+text = "147"
+horizontal_alignment = 1
+
+[node name="PlayerRank" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 124.0
+offset_right = 577.0
+offset_bottom = 174.0
+theme_override_colors/font_color = Color(0, 0, 0.929412, 1)
+theme_override_font_sizes/font_size = 36
+text = "1st place"
+horizontal_alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 298.0
+offset_right = 173.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_hkklp")
+theme_override_font_sizes/font_size = 64
+text = "nwy"
