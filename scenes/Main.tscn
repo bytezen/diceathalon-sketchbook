@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://0m8vyivop4fb"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_lmfb2"]
+[ext_resource type="PackedScene" uid="uid://6ydbo3y1qxuu" path="res://scenes/OneHundredMeter.tscn" id="2_o5s55"]
+[ext_resource type="PackedScene" uid="uid://ipbaqjpow62" path="res://sandbox.tscn" id="3_p5b6x"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_lmfb2")
+
+[node name="OneHundredMeter" parent="." instance=ExtResource("2_o5s55")]
+visible = false
+
+[node name="Sandbox" parent="." instance=ExtResource("3_p5b6x")]
+visible = false
