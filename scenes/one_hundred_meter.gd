@@ -1,6 +1,12 @@
 extends Control
 
 @export var player_score : RichTextLabel
+@export var player_flag : CompressedTexture2D:
+	set(val):
+		player_flag = val
+		if not is_node_ready():
+			await ready
+			%Flag.texture = player_flag
 
 enum State {INIT,IDLE, ROLLING, USER_CHOICE, LAST_ROLL,END, USER_ROLL_SECOND_SET}
 
